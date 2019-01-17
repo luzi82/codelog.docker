@@ -1,0 +1,16 @@
+--- composeexample/settings.py.old	2019-01-17 21:35:11.157000000 +0800
++++ composeexample/settings.py	2019-01-17 21:37:00.100347103 +0800
+@@ -75,8 +75,11 @@
+ 
+ DATABASES = {
+     'default': {
+-        'ENGINE': 'django.db.backends.sqlite3',
+-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
++        'ENGINE': 'django.db.backends.postgresql',
++        'NAME': 'postgres',
++        'USER': 'postgres',
++        'HOST': 'db',
++        'PORT': 5432,
+     }
+ }
+ 
