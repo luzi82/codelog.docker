@@ -1,0 +1,32 @@
+{
+  "executionRoleArn": "XXXXXXXX",
+  "containerDefinitions": [
+    {
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "protocol": "tcp",
+          "containerPort": 80
+        }
+      ],
+      "cpu": 256,
+      "environment": [],
+      "mountPoints": [],
+      "memoryReservation": 512,
+      "volumesFrom": [],
+      "image": "REPO_URI:DOCKER_TAG",
+      "essential": true,
+      "links": [],
+      "name": "sample-app"
+    }
+  ],
+  "placementConstraints": [],
+  "memory": "512",
+  "family": "TASK_FAMILY",
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "networkMode": "awsvpc",
+  "cpu": "256",
+  "volumes": []
+}

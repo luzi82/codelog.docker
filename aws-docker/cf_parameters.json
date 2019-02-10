@@ -1,0 +1,18 @@
+[
+  {
+    "ParameterKey": "EcsAmiId",
+    "ParameterValue": "ami-09568291a9d6c804c"
+  },
+  {
+    "ParameterKey": "EcsClusterName",
+    "ParameterValue": "codelog-docker-cluster"
+  },
+  {
+    "ParameterKey": "IamRoleInstanceProfile",
+    "ParameterValue": ""
+  },
+  {
+    "ParameterKey": "VpcAvailabilityZones",
+    "ParameterValue": "us-west-2a,us-west-2b,us-west-2c"
+  }
+]
