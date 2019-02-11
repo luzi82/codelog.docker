@@ -57,11 +57,16 @@ ${AWS} logs create-log-group --log-group-name codelog-docker-log-group
 
 #####
 echo Create AWS role
-${AWS} iam create-role --role-name codelog-docker-role --assume-role-policy-document file://role_trust.json > ${TMP}/role.json
+
+ROLE=codelog-${YYYYMMDDHHMMSS}-role
+echo ROLE=${ROLE}
+echo ROLE=${ROLE} >> ${ENV}
+
+${AWS} iam create-role --role-name ${ROLE} --assume-role-policy-document file://role_trust.json > ${TMP}/role.json
 ROLE_ARN=`cat ${TMP}/role.json | jq -r ".Role.Arn"`
 echo ROLE_ARN=${ROLE_ARN}
 echo ROLE_ARN=${ROLE_ARN} >> ${ENV}
-${AWS} iam put-role-policy --role-name codelog-docker-role --policy-name codelog-docker-policy --policy-document file://policy.json
+${AWS} iam put-role-policy --role-name ${ROLE} --policy-name codelog-docker-policy --policy-document file://policy.json
 
 #####
 echo Init AWS ECR
@@ -218,8 +223,8 @@ echo DONE
 ${AWS} ecs delete-cluster --cluster ${CLUSTER_ARN} > ${TMP}/cluster.delete.json
 docker logout ${AWS_ACCOUNT_ID}.dkr.ecr.${REGION}.amazonaws.com
 ${AWS} ecr delete-repository --repository-name ${ECR_REPO} --force > ${TMP}/ecr.delete-repository.json
-${AWS} iam delete-role-policy --role-name codelog-docker-role --policy-name codelog-docker-policy
-${AWS} iam delete-role --role-name codelog-docker-role
+${AWS} iam delete-role-policy --role-name ${ROLE} --policy-name codelog-docker-policy
+${AWS} iam delete-role --role-name ${ROLE}
 ${AWS} logs delete-log-group --log-group-name codelog-docker-log-group
 
 deactivate
