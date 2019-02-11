@@ -25,7 +25,7 @@ echo YYYYMMDDHHMMSS=${YYYYMMDDHHMMSS}
 #####
 echo Init local environment
 
-TMP=/tmp/codelog.docker.aws.${YYYYMMDDHHMMSS}
+TMP=/tmp/codelog.docker.aws-docker.${YYYYMMDDHHMMSS}
 echo TMP=${TMP}
 ENV=${TMP}/_env.sh
 echo ENV=${ENV}
