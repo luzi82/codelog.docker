@@ -1,7 +1,7 @@
 [
   {
     "ParameterKey": "EcsAmiId",
-    "ParameterValue": "ami-09568291a9d6c804c"
+    "ParameterValue": "ami-08a73ef2db6c656e5"
   },
   {
     "ParameterKey": "EcsClusterName",
