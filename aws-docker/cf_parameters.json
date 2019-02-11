@@ -5,7 +5,7 @@
   },
   {
     "ParameterKey": "EcsClusterName",
-    "ParameterValue": "codelog-docker-cluster"
+    "ParameterValue": "CLUSTER_NAME"
   },
   {
     "ParameterKey": "IamRoleInstanceProfile",
