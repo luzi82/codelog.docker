@@ -71,7 +71,7 @@ ${AWS} iam put-role-policy --role-name ${ROLE} --policy-name codelog-docker-poli
 #####
 echo Init AWS ECR
 
-ECR_REPO=codelog-ecrrepo-${YYYYMMDDHHMMSS}
+ECR_REPO=codelog-${YYYYMMDDHHMMSS}-ecrrepo
 echo ECR_REPO=${ECR_REPO}
 echo ECR_REPO=${ECR_REPO} >> ${ENV}
 
@@ -86,7 +86,7 @@ echo REPO_URI=${REPO_URI} >> ${ENV}
 #####
 echo Create AWS cluster
 
-CLUSTER_NAME=codelog-cluster-${YYYYMMDDHHMMSS}
+CLUSTER_NAME=codelog-${YYYYMMDDHHMMSS}-cluster
 echo CLUSTER_NAME=${CLUSTER_NAME}
 echo CLUSTER_NAME=${CLUSTER_NAME} >> ${ENV}
 
@@ -127,7 +127,7 @@ echo SUBNET_1_ID=${SUBNET_1_ID} >> ${ENV}
 #####
 echo Build docker image
 
-DOCKER_TAG=codelog-dockertag-${YYYYMMDDHHMMSS}
+DOCKER_TAG=codelog-${YYYYMMDDHHMMSS}-dockertag
 echo DOCKER_TAG=${DOCKER_TAG}
 echo DOCKER_TAG=${DOCKER_TAG} >> ${ENV}
 
@@ -141,7 +141,7 @@ docker push ${REPO_URI}
 
 #####
 echo Create AWS ECS task definition
-TASK_FAMILY=codelog-taskfamily-${YYYYMMDDHHMMSS}
+TASK_FAMILY=codelog-${YYYYMMDDHHMMSS}-taskfamily
 echo TASK_FAMILY=${TASK_FAMILY}
 echo TASK_FAMILY=${TASK_FAMILY} >> ${ENV}
 cat task-definition.json \
