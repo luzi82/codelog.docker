@@ -22,7 +22,7 @@ patch -p0 < settings.py.patch
 
 docker-compose up -d
 
-sleep 1
+sleep 10
 
 curl http://localhost:8000
 
