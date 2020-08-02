@@ -11,9 +11,9 @@ cd src
 docker container rm ${CONTAINER_NAME} || true
 
 # build
-docker pull hello-world
+docker pull ${IMAGE_NAME}
 
-docker create --name ${CONTAINER_NAME} hello-world
+docker create --name ${CONTAINER_NAME} ${IMAGE_NAME}
 
 docker start --attach ${CONTAINER_NAME}
 
